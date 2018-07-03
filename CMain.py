@@ -12,7 +12,7 @@ def main(stdscr):
     #Display Options Menu
     menu = CMenu.Menu()
     Menu_Title = 'Python Options'
-    Menu_Options = ['Easy', 'Medium', 'Hard', 'God Mode', 'Harder Than Armin', 'Enter Your Own Difficulty', 'Highscores', 'Exit']
+    Menu_Options = ['Easy', 'Medium', 'Hard', 'God Mode', 'Enter Your Own Difficulty', 'Highscores', 'Exit']
     xy = menu.xy
     menu.GetMenu(Menu_Title, Menu_Options)
     menu.DoMenu()
@@ -27,14 +27,12 @@ def main(stdscr):
     elif menu.selection == 3:
         speed = 30
     elif menu.selection == 4:
-        speed = 10
-    elif menu.selection == 5:
         stdscr.clear()
         curses.echo()
         stdscr.addstr(0, 0, 'Enter Difficulty: ')
         speed = stdscr.getstr(0, 19, 3)
         speed = int(speed.decode('utf-8'))
-    elif menu.selection == 6:
+    elif menu.selection == 5:
         stdscr.clear()
         with open('Highscores') as hs:
             scores = json.load(hs)
@@ -45,7 +43,7 @@ def main(stdscr):
         stdscr.nodelay(0)
         stdscr.getch()
         return
-    elif menu.selection == 7:
+    elif menu.selection == 6:
         return
 
     #Start the NCurses Window
